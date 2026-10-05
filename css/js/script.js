@@ -1,0 +1,1 @@
+console.log("Project Pal loaded successfully!");
