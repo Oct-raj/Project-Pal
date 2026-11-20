@@ -485,3 +485,48 @@ footer {
     margin-top: 15px;
     color: #5b45b0;
 }
+
+
+/* Dashboard My Projects Alignment Fix */
+
+.dashboard-content {
+    max-width: 850px;
+    margin: 55px auto;
+    text-align: center;
+}
+
+.dashboard-content h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.my-projects {
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px;
+    padding: 25px;
+    border-radius: 25px;
+    background: #f7f5ff;
+    box-shadow: 8px 8px 18px #d9d5eb,
+                -8px -8px 18px #ffffff;
+}
+
+.my-projects > p {
+    color: #817a99;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.dashboard-content > .primary-btn {
+    display: inline-block;
+    margin: 10px auto;
+}
+
+.my-project-card {
+    width: 100%;
+    text-align: left;
+}
