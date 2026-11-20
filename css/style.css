@@ -578,3 +578,6 @@ body {
 input {
     border: 1px solid #24e461;
 }
+h1 {
+    font-size: 32px;
+}
