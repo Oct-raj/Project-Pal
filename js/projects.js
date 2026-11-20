@@ -1,22 +1,48 @@
 
 const searchInput = document.getElementById("searchInput");
-const projectCards = document.querySelectorAll(".project-card");
+const projectGrid = document.getElementById("projectGrid");
 const noResults = document.getElementById("noResults");
 
-searchInput.addEventListener("input", function () {
+function displayProjects() {
+    const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+
+    savedProjects.forEach(function(project) {
+        const card = document.createElement("div");
+        card.className = "project-card";
+
+        const tag = document.createElement("span");
+        tag.className = "project-tag";
+        tag.innerText = project.category;
+
+        const title = document.createElement("h2");
+        title.innerText = project.title;
+
+        const description = document.createElement("p");
+        description.innerText = project.description;
+
+        const skills = document.createElement("p");
+        skills.innerText = "Skills: " + project.skills;
+
+        card.append(tag, title, description, skills);
+        projectGrid.appendChild(card);
+    });
+}
+
+displayProjects();
+
+searchInput.addEventListener("input", function() {
     const searchText = searchInput.value.toLowerCase();
-    let visibleCount = 0;
+    const cards = document.querySelectorAll(".project-card");
+    let count = 0;
 
-    projectCards.forEach(function (card) {
-        const projectText = card.innerText.toLowerCase();
-
-        if (projectText.includes(searchText)) {
+    cards.forEach(function(card) {
+        if (card.innerText.toLowerCase().includes(searchText)) {
             card.style.display = "block";
-            visibleCount++;
+            count++;
         } else {
             card.style.display = "none";
         }
     });
 
-    noResults.style.display = visibleCount === 0 ? "block" : "none";
+    noResults.style.display = count === 0 ? "block" : "none";
 });
