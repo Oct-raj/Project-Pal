@@ -569,3 +569,6 @@ footer {
     background: #eeeaff;
     color: #6c5ce7;
 }
+.project-card {
+    padding: 24px;
+}
