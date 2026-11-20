@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project | Project Pal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Project<span>Pal.</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Explore Projects</a>
+        <a href="teammates.html">Find Teammates</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <a href="create-project.html" class="nav-btn">Create Project</a>
+</header>
+
+<section class="create-section">
+    <h1>Create Your <span>Project</span></h1>
+    <p>Have an idea? Share it and find your perfect teammates.</p>
+
+    <form id="projectForm" class="create-form">
+        <label>Project Title</label>
+        <input type="text" id="title" placeholder="Enter project name" required>
+
+        <label>Project Description</label>
+        <textarea id="description" placeholder="Describe your project..." required></textarea>
+
+        <label>Required Skills</label>
+        <input type="text" id="skills" placeholder="HTML, CSS, JavaScript" required>
+
+        <label>Category</label>
+        <select id="category" required>
+            <option value="">Select category</option>
+            <option>Web Development</option>
+            <option>App Development</option>
+            <option>AI & Technology</option>
+            <option>Database</option>
+            <option>Other</option>
+        </select>
+
+        <button type="submit" class="primary-btn">Publish Project</button>
+        <p id="formMessage"></p>
+    </form>
+</section>
+
+<script src="js/create-project.js"></script>
+</body>
+</html>

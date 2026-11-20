@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Teammates | Project Pal</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Project<span>Pal.</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Explore Projects</a>
+            <a href="teammates.html">Find Teammates</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+        <a href="create-project.html" class="nav-btn">Get Started</a>
+    </header>
+
+    <section class="teammates-section">
+        <h1>Find Your <span>Perfect Team</span></h1>
+        <p>Connect with talented students and build something amazing together.</p>
+
+        <input type="text" id="studentSearch"
+        placeholder="Search by student name or skill...">
+
+        <div class="team-grid" id="teamGrid">
+
+            <div class="team-card">
+                <div class="student-avatar">👨‍💻</div>
+                <h2>Rahul Sharma</h2>
+                <p class="student-role">Frontend Developer</p>
+                <div class="skill-list">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                </div>
+                <a href="create-project.html" class="primary-btn">Connect</a>
+            </div>
+
+            <div class="team-card">
+                <div class="student-avatar">👩‍💻</div>
+                <h2>Priya Patel</h2>
+                <p class="student-role">UI/UX Designer</p>
+                <div class="skill-list">
+                    <span>Figma</span><span>Design</span><span>CSS</span>
+                </div>
+                <a href="create-project.html" class="primary-btn">Connect</a>
+            </div>
+
+            <div class="team-card">
+                <div class="student-avatar">🧑‍💻</div>
+                <h2>Aman Verma</h2>
+                <p class="student-role">Backend Developer</p>
+                <div class="skill-list">
+                    <span>Node.js</span><span>MongoDB</span><span>JavaScript</span>
+                </div>
+                <a href="create-project.html" class="primary-btn">Connect</a>
+            </div>
+
+        </div>
+
+        <p id="noStudents" style="display:none;">No students found.</p>
+    </section>
+
+    <script src="js/teammates.js"></script>
+</body>
+</html>
