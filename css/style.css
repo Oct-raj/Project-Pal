@@ -565,3 +565,7 @@ footer {
 .secondary-btn {
     font-family: Arial, sans-serif;
 }
+.skill-tag {
+    background: #eeeaff;
+    color: #6c5ce7;
+}
