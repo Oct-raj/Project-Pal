@@ -552,3 +552,8 @@ footer {
 .secondary-btn {
     border-radius: 10px;
 }
+.logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
