@@ -530,3 +530,9 @@ footer {
     width: 100%;
     text-align: left;
 }
+
+.project-card .primary-btn {
+    display: inline-block;
+    margin-top: 12px;
+    text-decoration: none;
+}

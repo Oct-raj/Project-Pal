@@ -23,7 +23,13 @@ function displayProjects() {
         const skills = document.createElement("p");
         skills.innerText = "Skills: " + project.skills;
 
-        card.append(tag, title, description, skills);
+        // Join Project Button
+        const joinButton = document.createElement("a");
+        joinButton.href = "teammates.html";
+        joinButton.className = "primary-btn";
+        joinButton.innerText = "Join Project";
+
+        card.append(tag, title, description, skills, joinButton);
         projectGrid.appendChild(card);
     });
 }
