@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Project Pal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">Project<span>Pal.</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Explore Projects</a>
+        <a href="teammates.html">Find Teammates</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <a href="create-project.html" class="nav-btn">Create Project</a>
+</header>
+
+<section class="dashboard">
+    <h1>Welcome to Your <span>Dashboard!</span></h1>
+    <p>Manage your projects and track your progress.</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h2 id="totalProjects">0</h2>
+            <p>My Projects</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>3</h2>
+            <p>Available Teammates</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>1</h2>
+            <p>Active Projects</p>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        <h2>My Projects</h2>
+        <div id="myProjects" class="my-projects">
+            <p>No projects created yet. Start by creating your first project!</p>
+        </div>
+
+        <a href="create-project.html" class="primary-btn">+ Create New Project</a>
+    </div>
+</section>
+
+<script src="js/dashboard.js"></script>
+</body>
+</html>
