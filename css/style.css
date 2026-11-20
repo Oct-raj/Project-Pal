@@ -561,3 +561,7 @@ footer {
 .secondary-btn {
     font-size: 14px;
 }
+.primary-btn,
+.secondary-btn {
+    font-family: Arial, sans-serif;
+}
