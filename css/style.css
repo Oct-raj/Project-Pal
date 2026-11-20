@@ -548,3 +548,7 @@ footer {
     transform: translateY(-3px);
     box-shadow: 0 8px 18px rgba(108, 92, 231, 0.2);
 }
+.primary-btn,
+.secondary-btn {
+    border-radius: 10px;
+}
