@@ -557,3 +557,7 @@ footer {
     height: 40px;
     object-fit: contain;
 }
+.primary-btn,
+.secondary-btn {
+    font-size: 14px;
+}
