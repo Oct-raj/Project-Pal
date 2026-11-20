@@ -575,3 +575,6 @@ footer {
 body {
     background-color: #f37a08;
 }
+input {
+    border: 1px solid #24e461;
+}
