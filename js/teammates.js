@@ -20,3 +20,6 @@ studentSearch.addEventListener("input", function () {
 
     noStudents.style.display = count === 0 ? "block" : "none";
 });
+function connectStudent(name) {
+    alert("Connection request sent to " + name + "!");
+}
