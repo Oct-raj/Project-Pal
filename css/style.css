@@ -536,3 +536,15 @@ footer {
     margin-top: 12px;
     text-decoration: none;
 }
+/* Button Hover */
+
+.primary-btn,
+.secondary-btn {
+    transition: 0.3s;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(108, 92, 231, 0.2);
+}
