@@ -1,25 +1,4 @@
 
-function showMessage(message) {
-    const msg = document.createElement("div");
-    msg.innerText = message;
-    msg.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: #6c63ff;
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        z-index: 9999;
-    `;
-
-    document.body.appendChild(msg);
-
-    setTimeout(() => {
-        window.location.href = "index.html";
-    }, 1000);
-}
-
 async function signup() {
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -30,7 +9,7 @@ async function signup() {
         return;
     }
 
-    const { error } = await supabaseClient.auth.signUp({
+    const { error } = await window.supabaseClient.auth.signUp({
         email,
         password,
         options: {
@@ -41,7 +20,8 @@ async function signup() {
     if (error) {
         alert(error.message);
     } else {
-        showMessage("Account created successfully!");
+        alert("Account created! Please check your email if confirmation is required.");
+        window.location.href = "login.html";
     }
 }
 
@@ -54,7 +34,7 @@ async function login() {
         return;
     }
 
-    const { error } = await supabaseClient.auth.signInWithPassword({
+    const { error } = await window.supabaseClient.auth.signInWithPassword({
         email,
         password
     });
@@ -62,6 +42,39 @@ async function login() {
     if (error) {
         alert(error.message);
     } else {
-        showMessage("Login successful!");
+        alert("Login successful!");
+        window.location.href = "index.html";
     }
 }
+
+async function logout() {
+    const { error } = await window.supabaseClient.auth.signOut();
+
+    if (error) {
+        alert(error.message);
+    } else {
+        window.location.href = "index.html";
+    }
+}
+
+// Update navbar buttons
+async function updateAuthButtons() {
+    const { data: { user } } = await window.supabaseClient.auth.getUser();
+
+    const authButtons = document.getElementById("authButtons");
+
+    if (!authButtons) return;
+
+    if (user) {
+        authButtons.innerHTML = `
+            <button class="nav-btn" onclick="logout()">Logout</button>
+        `;
+    } else {
+        authButtons.innerHTML = `
+            <a href="login.html" class="nav-btn">Login</a>
+            <a href="signup.html" class="nav-btn">Sign Up</a>
+        `;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateAuthButtons);
