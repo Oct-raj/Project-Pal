@@ -9,79 +9,115 @@
 </head>
 <body>
 
-<header class="navbar">
-    <div class="logo">Project<span>Pal.</span></div>
+    <header class="navbar">
+        <div class="logo">Project<span>Pal.</span></div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Explore Projects</a>
-        <a href="teammates.html">Find Teammates</a>
-        <a href="dashboard.html">Dashboard</a>
-    </nav>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Explore Projects</a>
+            <a href="teammates.html">Find Teammates</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
 
-    <div class="hero-buttons">
-        <button id="themeToggle" class="theme-toggle">☀ Light</button>
-        <a href="create-project.html" class="nav-btn">Create Project</a>
-    </div>
-</header>
+        <div class="hero-buttons">
+            <button id="themeToggle" class="theme-toggle">☀ Light</button>
+            <a href="create-project.html" class="nav-btn">Create Project</a>
+            <div id="authButtons" class="hero-buttons"></div>
+        </div>
+    </header>
 
-<section class="dashboard">
+    <section class="dashboard">
 
-    <div class="profile-card">
-        <h2 id="userName">Loading...</h2>
-        <p id="userEmail">Loading email...</p>
-        <p>Project Pal Member</p>
-    </div>
-
-    <h1>Welcome to Your <span>Dashboard!</span></h1>
-    <p>Manage your projects and track your progress.</p>
-
-    <div class="stats-grid">
-        <div class="stat-card">
-            <h2 id="totalProjects">0</h2>
-            <p>My Projects</p>
+        <div class="profile-card">
+            <h2 id="userName">Loading...</h2>
+            <p id="userEmail">Loading email...</p>
+            <p>Project Pal Member</p>
         </div>
 
-        <div class="stat-card">
-            <h2 id="availableTeammates">3</h2>
-            <p>Available Teammates</p>
+        <h1>Welcome to Your <span>Dashboard!</span></h1>
+        <p>Manage your projects and track your progress.</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h2 id="totalProjects">0</h2>
+                <p>My Projects</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 id="availableTeammates">3</h2>
+                <p>Available Teammates</p>
+            </div>
+
+            <div class="stat-card">
+                <h2 id="activeProjects">0</h2>
+                <p>Active Projects</p>
+            </div>
         </div>
 
-        <div class="stat-card">
-            <h2 id="activeProjects">0</h2>
-            <p>Active Projects</p>
+        <div class="dashboard-content">
+
+            <h2>My Projects</h2>
+            <div id="myProjects" class="my-projects">
+                <p>Loading projects...</p>
+            </div>
+
+            <h2>Join Requests</h2>
+            <div id="joinRequests" class="my-projects">
+                <p>Loading requests...</p>
+            </div>
+
+            <h2>Joined Projects</h2>
+            <div id="joinedProjects" class="my-projects">
+                <p>Loading projects...</p>
+            </div>
+
+            <h2>Connection Requests 🤝</h2>
+            <p>Students who want to connect with you.</p>
+            <div id="connectionRequests" class="my-projects">
+                <p>Loading connection requests...</p>
+            </div>
+
+            <h2>My Connections 👥</h2>
+            <p>Your accepted teammates.</p>
+            <div id="myConnections" class="my-projects">
+                <p>Loading connections...</p>
+            </div>
+
+            <a href="create-project.html" class="primary-btn">+ Create New Project</a>
+
         </div>
-    </div>
+    </section>
 
-    <div class="dashboard-content">
+    <footer class="main-footer">
+        <div class="footer-content">
 
-        <h2>My Projects</h2>
-        <div id="myProjects" class="my-projects">
-            <p>Loading projects...</p>
+            <div class="footer-about">
+                <h2>Project<span>Pal.</span></h2>
+                <p>Find teammates, share ideas, and turn your project ideas into reality.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="help.html">Help Desk</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+            </div>
+
         </div>
 
-        <br>
-        <h2>Join Requests</h2>
-        <div id="joinRequests" class="my-projects">
-            <p>Loading requests...</p>
+        <div class="footer-bottom">
+            <p>© 2026 Project Pal. All rights reserved.</p>
         </div>
+    </footer>
 
-        <br>
-        <h2>Joined Projects</h2>
-        <div id="joinedProjects" class="my-projects">
-            <p>Loading projects...</p>
-        </div>
-
-        <br>
-        <a href="create-project.html" class="primary-btn">+ Create New Project</a>
-
-    </div>
-</section>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
-<script src="js/dashboard.js"></script>
-<script src="js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
 
 </body>
 </html>
