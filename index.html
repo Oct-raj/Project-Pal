@@ -7,84 +7,129 @@
     <title>Project Pal | Find Your Team</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <header class="navbar">
-        <div class="logo">Project<span>Pal.</span></div>
+<header class="navbar">
+    <div class="logo">Project<span>Pal.</span></div>
 
-        <nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Explore Projects</a>
+        <a href="teammates.html">Find Teammates</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <div class="hero-buttons">
+        <button id="themeToggle" class="theme-toggle">☀ Light</button>
+        <div id="authButtons" class="hero-buttons"></div>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="tag">YOUR IDEAS. YOUR TEAM. YOUR SUCCESS.</span>
+
+            <h1>Great Projects Start With <span>Great People.</span></h1>
+
+            <p>
+                Find teammates, discover exciting projects and turn
+                your creative ideas into reality with Project Pal.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="projects.html" class="primary-btn">Explore Projects →</a>
+                <a href="teammates.html" class="secondary-btn">Find Teammates</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="card-icon">🚀</div>
+            <h2>Build Something Amazing</h2>
+            <p>Connect. Collaborate. Create.</p>
+
+            <div class="mini-card">💡 Share your ideas</div>
+            <div class="mini-card">🤝 Meet your team</div>
+            <div class="mini-card">🎯 Achieve your goals</div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2>Everything You Need to Collaborate</h2>
+        <p class="section-subtitle">
+            Your journey from idea to successful project starts here.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Explore Projects</h3>
+                <p>Discover interesting projects and join teams that match your interests.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Find Teammates</h3>
+                <p>Connect with students who have the skills your project needs.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Track Progress</h3>
+                <p>Organize your work and keep track of your project progress.</p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="main-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+            <div class="logo">Project<span>Pal.</span></div>
+
+            <p>
+                Find teammates. Build projects. Get things done.
+                A place where student ideas turn into real projects
+                through collaboration.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
             <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
             <a href="projects.html">Explore Projects</a>
             <a href="teammates.html">Find Teammates</a>
             <a href="dashboard.html">Dashboard</a>
-        </nav>
-
-        <div class="hero-buttons">
-            <button id="themeToggle" class="theme-toggle">☀ Light</button>
-            <a href="login.html" class="secondary-btn">Login</a>
-            <a href="signup.html" class="nav-btn">Sign Up</a>
         </div>
-    </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <span class="tag">YOUR IDEAS. YOUR TEAM. YOUR SUCCESS.</span>
-                <h1>Great Projects Start With <span>Great People.</span></h1>
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="contact.html">Contact Us</a>
+            <a href="help.html">Help Desk</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+        </div>
 
-                <p>
-                    Find teammates, discover exciting projects and turn
-                    your creative ideas into reality with Project Pal.
-                </p>
+    </div>
 
-                <div class="hero-buttons">
-                    <a href="projects.html" class="primary-btn">Explore Projects →</a>
-                    <a href="teammates.html" class="secondary-btn">Find Teammates</a>
-                </div>
-            </div>
+    <div class="footer-bottom">
+        © 2026 Project Pal. Made for students, built for collaboration.
+    </div>
 
-            <div class="hero-card">
-                <div class="card-icon">🚀</div>
-                <h2>Build Something Amazing</h2>
-                <p>Connect. Collaborate. Create.</p>
-                <div class="mini-card">💡 Share your ideas</div>
-                <div class="mini-card">🤝 Meet your team</div>
-                <div class="mini-card">🎯 Achieve your goals</div>
-            </div>
-        </section>
+</footer>
 
-        <section class="features">
-            <h2>Everything You Need to Collaborate</h2>
-            <p class="section-subtitle">Your journey from idea to successful project starts here.</p>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Explore Projects</h3>
-                    <p>Discover interesting projects and join teams that match your interests.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Find Teammates</h3>
-                    <p>Connect with students who have the skills your project needs.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Track Progress</h3>
-                    <p>Organize your work and keep track of your project progress.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2026 Project Pal. Made for students, built for collaboration.</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="js/supabase.js"></script>
-    <script src="js/theme.js"></script>
 </body>
 </html>
