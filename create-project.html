@@ -9,55 +9,82 @@
 </head>
 <body>
 
-<header class="navbar">
-    <div class="logo">Project<span>Pal.</span></div>
+    <header class="navbar">
+        <div class="logo">Project<span>Pal.</span></div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Explore Projects</a>
-        <a href="teammates.html">Find Teammates</a>
-        <a href="dashboard.html">Dashboard</a>
-    </nav>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Explore Projects</a>
+            <a href="teammates.html">Find Teammates</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
 
-    <div class="hero-buttons">
-        <button id="themeToggle" class="theme-toggle">☀ Light</button>
-        <a href="create-project.html" class="nav-btn">Create Project</a>
-    </div>
-</header>
+        <div class="hero-buttons">
+            <button id="themeToggle" class="theme-toggle">☀ Light</button>
+            <a href="create-project.html" class="nav-btn">Create Project</a>
+            <div id="authButtons" class="hero-buttons"></div>
+        </div>
+    </header>
 
-<section class="create-section">
-    <h1>Create Your <span>Project</span></h1>
-    <p>Have an idea? Share it and find your perfect teammates.</p>
+    <section class="create-section">
+        <h1>Create Your <span>Project</span></h1>
+        <p>Have an idea? Share it and find your perfect teammates.</p>
 
-    <form id="projectForm" class="create-form">
-        <label>Project Title</label>
-        <input type="text" id="title" placeholder="Enter project name" required>
+        <form id="projectForm" class="create-form">
+            <label>Project Title</label>
+            <input type="text" id="title" placeholder="Enter project name" required>
 
-        <label>Project Description</label>
-        <textarea id="description" placeholder="Describe your project..." required></textarea>
+            <label>Project Description</label>
+            <textarea id="description" placeholder="Describe your project..." required></textarea>
 
-        <label>Required Skills</label>
-        <input type="text" id="skills" placeholder="HTML, CSS, JavaScript" required>
+            <label>Required Skills</label>
+            <input type="text" id="skills" placeholder="HTML, CSS, JavaScript" required>
 
-        <label>Category</label>
-        <select id="category" required>
-            <option value="">Select category</option>
-            <option>Web Development</option>
-            <option>App Development</option>
-            <option>AI & Technology</option>
-            <option>Database</option>
-            <option>Other</option>
-        </select>
+            <label>Category</label>
+            <select id="category" required>
+                <option value="">Select category</option>
+                <option>Web Development</option>
+                <option>App Development</option>
+                <option>AI & Technology</option>
+                <option>Database</option>
+                <option>Other</option>
+            </select>
 
-        <button type="submit" class="primary-btn">Publish Project</button>
-        <p id="formMessage"></p>
-    </form>
-</section>
+            <button type="submit" class="primary-btn">Publish Project</button>
+            <p id="formMessage"></p>
+        </form>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
-<script src="js/create-project.js"></script>
-<script src="js/theme.js"></script>
+    <footer class="main-footer">
+        <div class="footer-content">
+
+            <div class="footer-about">
+                <h2>Project<span>Pal.</span></h2>
+                <p>Find teammates, share ideas, and turn your project ideas into reality.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="help.html">Help Desk</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Project Pal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/create-project.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
 
 </body>
 </html>
