@@ -25,6 +25,7 @@
     --shadow: rgba(22, 138, 69, 0.07);
 }
 
+/* GLOBAL */
 * {
     margin: 0;
     padding: 0;
@@ -38,7 +39,7 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -79,7 +80,7 @@ nav a:hover {
     color: var(--green);
 }
 
-/* Buttons */
+/* BUTTONS */
 .nav-btn,
 .primary-btn {
     display: inline-block;
@@ -121,7 +122,7 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
-/* Theme Toggle */
+/* THEME TOGGLE */
 .theme-toggle {
     padding: 10px 15px;
     border: 1px solid var(--green);
@@ -140,7 +141,7 @@ nav a:hover {
     color: #ffffff;
 }
 
-/* Hero */
+/* HERO */
 .hero {
     min-height: 570px;
     padding: 80px 10%;
@@ -180,7 +181,7 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
-/* Hero Card */
+/* HERO CARD */
 .hero-card {
     width: 330px;
     padding: 30px;
@@ -215,7 +216,7 @@ nav a:hover {
     font-size: 13px;
 }
 
-/* Features */
+/* FEATURES */
 .features {
     padding: 70px 10%;
     text-align: center;
@@ -260,7 +261,7 @@ nav a:hover {
     line-height: 1.7;
 }
 
-/* Explore Projects */
+/* EXPLORE PROJECTS */
 .projects-section {
     padding: 65px 10%;
     text-align: center;
@@ -332,7 +333,7 @@ nav a:hover {
     margin-top: 8px;
 }
 
-/* Find Teammates */
+/* FIND TEAMMATES */
 .teammates-section {
     padding: 65px 10%;
     text-align: center;
@@ -396,7 +397,7 @@ nav a:hover {
     font-size: 12px;
 }
 
-/* Create Project */
+/* CREATE PROJECT */
 .create-section {
     padding: 60px 20px;
     text-align: center;
@@ -458,7 +459,7 @@ nav a:hover {
     color: var(--green);
 }
 
-/* Dashboard */
+/* DASHBOARD */
 .dashboard-content {
     max-width: 850px;
     margin: 55px auto;
@@ -476,6 +477,8 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
     margin: 0 auto 25px;
     padding: 25px;
     border-radius: 20px;
@@ -500,7 +503,7 @@ nav a:hover {
     text-align: left;
 }
 
-/* Signup and Login */
+/* LOGIN AND SIGNUP */
 .auth-card {
     max-width: 380px;
     margin: 100px auto;
@@ -537,7 +540,7 @@ nav a:hover {
     text-decoration: none;
 }
 
-/* Hover Effects */
+/* HOVER EFFECTS */
 .feature-card:hover,
 .project-card:hover,
 .team-card:hover {
@@ -551,7 +554,7 @@ nav a:hover {
     box-shadow: 0 12px 28px rgba(22, 138, 69, 0.12);
 }
 
-/* Footer */
+/* FOOTER */
 footer {
     text-align: center;
     padding: 25px;
@@ -566,7 +569,460 @@ footer {
     border-color: var(--border);
 }
 
-/* Mobile */
+/* ABOUT PAGE */
+.about-hero {
+    text-align: center;
+    padding: 75px 20px 45px;
+}
+
+.about-hero .tag {
+    color: var(--green);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.about-hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    margin: 20px 0;
+}
+
+.about-hero h1 span {
+    color: var(--green);
+}
+
+.about-hero p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--grey);
+    line-height: 1.8;
+}
+
+.about-content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px 70px;
+}
+
+.about-content > p {
+    color: var(--grey);
+    line-height: 1.8;
+    margin-top: 12px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.about-card {
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card);
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    border-color: var(--green);
+    transform: translateY(-4px);
+}
+
+.about-card h3 {
+    margin: 12px 0;
+}
+
+.about-card p {
+    color: var(--grey);
+    line-height: 1.7;
+}
+
+.about-icon {
+    font-size: 30px;
+}
+
+.about-story {
+    margin-top: 55px;
+    padding: 30px;
+    border-left: 4px solid var(--green);
+    border-radius: 10px;
+    background: var(--card);
+    line-height: 1.8;
+}
+
+.about-story p {
+    color: var(--grey);
+    margin-top: 12px;
+}
+
+.about-cta {
+    text-align: center;
+    padding: 45px 20px 70px;
+}
+
+.about-cta p {
+    color: var(--grey);
+    margin: 15px 0 25px;
+}
+
+/* CONTACT PAGE */
+.contact-section {
+    max-width: 1050px;
+    margin: 55px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.contact-info,
+.contact-form {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.contact-info h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.contact-info h1 span {
+    color: var(--green);
+}
+
+.contact-info p {
+    color: var(--grey);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.contact-detail {
+    padding: 15px;
+    margin-top: 12px;
+    background: var(--soft);
+    border-radius: 10px;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin: 15px 0 7px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--input);
+    color: var(--white);
+    font-family: inherit;
+    outline: none;
+}
+
+.contact-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.contact-form button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#contactStatus {
+    margin-top: 15px;
+    color: var(--green);
+    line-height: 1.6;
+}
+
+/* COMMON FOOTER */
+.main-footer {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 45px 8% 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.footer-about {
+    width: 100%;
+    text-align: center;
+}
+
+.footer-about p {
+    color: var(--grey);
+    line-height: 1.8;
+    max-width: 450px;
+    margin: 12px auto;
+}
+
+.footer-links {
+    text-align: center;
+}
+
+.footer-links h3 {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--grey);
+    margin: 8px 12px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--green);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    color: var(--grey);
+    font-size: 12px;
+}
+
+/* HELP DESK PAGE */
+.help-hero {
+    text-align: center;
+    padding: 65px 20px 35px;
+}
+
+.help-hero h1 {
+    font-size: clamp(32px, 5vw, 45px);
+    margin: 15px 0;
+}
+
+.help-hero h1 span {
+    color: var(--green);
+}
+
+.help-hero p {
+    color: var(--grey);
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: 20px auto 70px;
+    padding: 0 20px;
+}
+
+.faq-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.faq-item summary {
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.faq-item summary::after {
+    content: "+";
+    color: var(--green);
+    font-size: 22px;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item summary:hover {
+    color: var(--green);
+}
+
+.faq-answer {
+    padding: 0 20px 20px;
+    color: var(--grey);
+    line-height: 1.8;
+}
+
+.help-contact {
+    text-align: center;
+    padding: 45px 20px 65px;
+    background: var(--card);
+}
+
+.help-contact p {
+    color: var(--grey);
+    margin: 12px 0 25px;
+}
+
+/* LEGAL PAGES */
+.legal-page {
+    max-width: 900px;
+    margin: 55px auto;
+    padding: 30px;
+}
+
+.legal-page h1 span {
+    color: var(--green);
+}
+
+.legal-page h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.legal-page p,
+.legal-page li {
+    color: var(--grey);
+    line-height: 1.9;
+}
+
+.legal-page ul {
+    padding-left: 25px;
+}
+
+.legal-date {
+    margin: 12px 0 30px;
+    color: var(--grey);
+}
+
+.legal-page a {
+    color: var(--green);
+}
+
+/* NO RESULTS */
+.no-results,
+.no-students {
+    display: none;
+    text-align: center;
+    color: var(--grey);
+    margin: 25px 0;
+}
+
+/* CHAT PAGE */
+.chat-layout {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+}
+
+.chat-list,
+.chat-window {
+    background: var(--card);
+    color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    min-height: 450px;
+}
+
+.chat-list h2,
+.chat-window h2 {
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.chat-person {
+    padding: 14px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--white);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.chat-person:hover {
+    background: var(--soft);
+    color: var(--green);
+}
+
+#messages {
+    height: 330px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.message {
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 75%;
+    background: var(--soft);
+    color: var(--white);
+    overflow-wrap: anywhere;
+}
+
+.message.mine {
+    background: var(--green);
+    color: #080b08;
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.chat-input input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--input);
+    color: var(--white);
+    font-family: inherit;
+    outline: none;
+}
+
+.chat-input input:focus {
+    border-color: var(--green);
+}
+
+.chat-input button {
+    flex-shrink: 0;
+}
+
+/* CHAT SCROLLBAR */
+#messages::-webkit-scrollbar {
+    width: 7px;
+}
+
+#messages::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+/* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -615,5 +1071,60 @@ footer {
 
     .theme-toggle {
         margin: 5px;
+    }
+}
+
+@media (max-width: 700px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        margin: 25px auto;
+    }
+
+    .footer-links a {
+        margin: 8px;
+    }
+}
+
+@media (max-width: 650px) {
+    .chat-layout {
+        grid-template-columns: 1fr;
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    .chat-list,
+    .chat-window {
+        min-height: auto;
+        padding: 16px;
+    }
+
+    #messages {
+        height: 350px;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    .chat-input {
+        gap: 7px;
+    }
+
+    .chat-input button {
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero {
+        padding-top: 45px;
+    }
+
+    .about-story {
+        padding: 22px;
+    }
+
+    .legal-page {
+        padding: 20px;
     }
 }
