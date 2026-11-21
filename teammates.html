@@ -22,6 +22,7 @@
         <div class="hero-buttons">
             <button id="themeToggle" class="theme-toggle">☀ Light</button>
             <a href="create-project.html" class="nav-btn">Get Started</a>
+            <div id="authButtons" class="hero-buttons"></div>
         </div>
     </header>
 
@@ -29,49 +30,50 @@
         <h1>Find Your <span>Perfect Team</span></h1>
         <p>Connect with talented students and build something amazing together.</p>
 
-        <input type="text" id="studentSearch"
-        placeholder="Search by student name or skill...">
+        <input
+            type="text"
+            id="studentSearch"
+            placeholder="Search by student name or email..."
+        >
 
         <div class="team-grid" id="teamGrid">
+            <p>Loading students...</p>
+        </div>
 
-            <div class="team-card">
-                <div class="student-avatar">👨‍💻</div>
-                <h2>Rahul Sharma</h2>
-                <p class="student-role">Frontend Developer</p>
-                <div class="skill-list">
-                    <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                </div>
-                <button class="primary-btn" onclick="connectStudent('Rahul Sharma')">
-                    Connect
-                </button>
+        <p id="noStudents" class="no-students" hidden>
+            No students found.
+        </p>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+
+            <div class="footer-about">
+                <h2>Project<span>Pal.</span></h2>
+                <p>Find teammates, share ideas, and turn your project ideas into reality.</p>
             </div>
 
-            <div class="team-card">
-                <div class="student-avatar">👩‍💻</div>
-                <h2>Priya Patel</h2>
-                <p class="student-role">UI/UX Designer</p>
-                <div class="skill-list">
-                    <span>Figma</span><span>Design</span><span>CSS</span>
-                </div>
-                <a href="create-project.html" class="primary-btn">Connect</a>
-            </div>
-
-            <div class="team-card">
-                <div class="student-avatar">🧑‍💻</div>
-                <h2>Aman Verma</h2>
-                <p class="student-role">Backend Developer</p>
-                <div class="skill-list">
-                    <span>Node.js</span><span>MongoDB</span><span>JavaScript</span>
-                </div>
-                <a href="create-project.html" class="primary-btn">Connect</a>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="help.html">Help Desk</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
             </div>
 
         </div>
 
-        <p id="noStudents" style="display:none;">No students found.</p>
-    </section>
+        <div class="footer-bottom">
+            <p>© 2026 Project Pal. All rights reserved.</p>
+        </div>
+    </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
     <script src="js/teammates.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/theme.js"></script>
 
 </body>
