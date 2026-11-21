@@ -29,40 +29,21 @@
         <h1>Explore <span>Projects</span></h1>
         <p>Find interesting projects and connect with creative students.</p>
 
-        <input type="text" id="searchInput"
-        placeholder="Search projects by name or technology...">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search projects by name or technology..."
+        >
 
         <div class="project-grid" id="projectGrid">
-
-            <div class="project-card">
-                <span class="project-tag">Web Development</span>
-                <h2>Student Management System</h2>
-                <p>A platform to manage student records, attendance and results.</p>
-                <p><b>Skills:</b> HTML, CSS, JavaScript</p>
-                <a href="teammates.html" class="primary-btn">Join Project</a>
-            </div>
-
-            <div class="project-card">
-                <span class="project-tag">AI & Technology</span>
-                <h2>AI Chatbot</h2>
-                <p>A smart chatbot that answers common student questions.</p>
-                <p><b>Skills:</b> JavaScript, AI</p>
-                <a href="teammates.html" class="primary-btn">Join Project</a>
-            </div>
-
-            <div class="project-card">
-                <span class="project-tag">Database</span>
-                <h2>Library Management</h2>
-                <p>A system to manage books, members and library records.</p>
-                <p><b>Skills:</b> HTML, CSS, MongoDB</p>
-                <a href="teammates.html" class="primary-btn">Join Project</a>
-            </div>
-
+            <p>Loading projects...</p>
         </div>
 
         <p id="noResults" style="display:none;">No projects found.</p>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/theme.js"></script>
 

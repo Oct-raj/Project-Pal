@@ -3,16 +3,40 @@ const searchInput = document.getElementById("searchInput");
 const projectGrid = document.getElementById("projectGrid");
 const noResults = document.getElementById("noResults");
 
-function displayProjects() {
-    const savedProjects = JSON.parse(localStorage.getItem("projects")) || [];
+let allProjects = [];
 
-    savedProjects.forEach(function(project) {
+async function displayProjects() {
+    projectGrid.innerHTML = "<p>Loading projects...</p>";
+
+    try {
+        const { data, error } = await window.supabaseClient
+            .from("projects")
+            .select("*")
+            .order("created_at", { ascending: false });
+
+        if (error) throw error;
+
+        allProjects = data;
+        showProjects(allProjects);
+
+    } catch (error) {
+        console.error(error);
+        projectGrid.innerHTML = "<p>Unable to load projects. Please try again.</p>";
+    }
+}
+
+function showProjects(projects) {
+    projectGrid.innerHTML = "";
+
+    noResults.style.display = projects.length === 0 ? "block" : "none";
+
+    projects.forEach(function(project) {
         const card = document.createElement("div");
         card.className = "project-card";
 
         const tag = document.createElement("span");
         tag.className = "project-tag";
-        tag.innerText = project.category;
+        tag.innerText = project.category || "Other";
 
         const title = document.createElement("h2");
         title.innerText = project.title;
@@ -23,32 +47,70 @@ function displayProjects() {
         const skills = document.createElement("p");
         skills.innerText = "Skills: " + project.skills;
 
-        // Join Project Button
-        const joinButton = document.createElement("a");
-        joinButton.href = "teammates.html";
+        const joinButton = document.createElement("button");
         joinButton.className = "primary-btn";
         joinButton.innerText = "Join Project";
+
+        joinButton.addEventListener("click", function() {
+            sendJoinRequest(project.id, joinButton);
+        });
 
         card.append(tag, title, description, skills, joinButton);
         projectGrid.appendChild(card);
     });
 }
 
-displayProjects();
-
 searchInput.addEventListener("input", function() {
     const searchText = searchInput.value.toLowerCase();
-    const cards = document.querySelectorAll(".project-card");
-    let count = 0;
 
-    cards.forEach(function(card) {
-        if (card.innerText.toLowerCase().includes(searchText)) {
-            card.style.display = "block";
-            count++;
-        } else {
-            card.style.display = "none";
-        }
+    const filteredProjects = allProjects.filter(function(project) {
+        return (
+            project.title.toLowerCase().includes(searchText) ||
+            project.description.toLowerCase().includes(searchText) ||
+            (project.skills || "").toLowerCase().includes(searchText) ||
+            (project.category || "").toLowerCase().includes(searchText)
+        );
     });
 
-    noResults.style.display = count === 0 ? "block" : "none";
+    showProjects(filteredProjects);
 });
+
+async function sendJoinRequest(projectId, button) {
+    button.disabled = true;
+    button.innerText = "Sending...";
+
+    try {
+        const { data: { user }, error: authError } =
+            await window.supabaseClient.auth.getUser();
+
+        if (authError || !user) {
+            alert("Please login first to join a project.");
+            return;
+        }
+
+        const { error } = await window.supabaseClient
+            .from("project_join_requests")
+            .insert([{
+                project_id: projectId,
+                requester_id: user.id,
+                message: "I want to join this project."
+            }]);
+
+        if (error) throw error;
+
+        alert("Join request sent successfully!");
+        button.innerText = "Request Sent";
+
+    } catch (error) {
+        console.error(error);
+        alert(error.code === "23505"
+            ? "You have already requested to join this project."
+            : error.message);
+        button.innerText = "Join Project";
+
+    } finally {
+        button.disabled = false;
+    }
+}
+
+displayProjects();
