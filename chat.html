@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat | Project Pal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Project<span>Pal.</span></div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Explore Projects</a>
+            <a href="teammates.html">Find Teammates</a>
+            <a href="dashboard.html">Dashboard</a>
+        </nav>
+
+        <div class="hero-buttons">
+            <button id="themeToggle" class="theme-toggle">☀ Light</button>
+            <div id="authButtons" class="hero-buttons"></div>
+        </div>
+    </header>
+
+    <main class="chat-layout">
+
+        <aside class="chat-list">
+            <h2>My Connections</h2>
+            <div id="connectionList">Loading connections...</div>
+        </aside>
+
+        <section class="chat-window">
+            <h2 id="chatName">Your Messages</h2>
+
+            <div id="messages">
+                <p>Select a connection to start chatting.</p>
+            </div>
+
+            <form id="chatForm" class="chat-input">
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Write a message..."
+                    maxlength="2000"
+                    autocomplete="off"
+                    disabled
+                >
+                <button type="submit" class="primary-btn" disabled>
+                    Send
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+
+            <div class="footer-about">
+                <h2>Project<span>Pal.</span></h2>
+                <p>Find teammates, share ideas, and turn your project ideas into reality.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="help.html">Help Desk</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Project Pal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/theme.js"></script>
+
+</body>
+</html>
