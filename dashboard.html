@@ -11,13 +11,18 @@
 
 <header class="navbar">
     <div class="logo">Project<span>Pal.</span></div>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Explore Projects</a>
         <a href="teammates.html">Find Teammates</a>
         <a href="dashboard.html">Dashboard</a>
     </nav>
-    <a href="create-project.html" class="nav-btn">Create Project</a>
+
+    <div class="hero-buttons">
+        <button id="themeToggle" class="theme-toggle">☀ Light</button>
+        <a href="create-project.html" class="nav-btn">Create Project</a>
+    </div>
 </header>
 
 <section class="dashboard">
@@ -43,6 +48,7 @@
 
     <div class="dashboard-content">
         <h2>My Projects</h2>
+
         <div id="myProjects" class="my-projects">
             <p>No projects created yet. Start by creating your first project!</p>
         </div>
@@ -52,5 +58,6 @@
 </section>
 
 <script src="js/dashboard.js"></script>
+<script src="js/theme.js"></script>
 </body>
 </html>
