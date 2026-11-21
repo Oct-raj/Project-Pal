@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk | Project Pal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">Project<span>Pal.</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Explore Projects</a>
+        <a href="teammates.html">Find Teammates</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <div class="hero-buttons">
+        <button id="themeToggle" class="theme-toggle">☀ Light</button>
+        <div id="authButtons" class="hero-buttons"></div>
+    </div>
+</header>
+
+<main>
+
+    <section class="help-hero">
+        <span class="tag">HELP & SUPPORT</span>
+        <h1>How Can We <span>Help You?</span></h1>
+        <p>Find answers to common questions about Project Pal.</p>
+    </section>
+
+    <section class="faq-container">
+
+        <details class="faq-item">
+            <summary>What is Project Pal?</summary>
+            <div class="faq-answer">
+                Project Pal is a student collaboration platform where
+                students can discover projects, connect with teammates
+                and work together on ideas.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How can I create an account?</summary>
+            <div class="faq-answer">
+                Visit the Sign Up page, enter your name, email and
+                password, and complete the registration process.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How can I create a project?</summary>
+            <div class="faq-answer">
+                Log in to your account, open the Create Project option,
+                fill in the project details and submit the form.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How can I join a project?</summary>
+            <div class="faq-answer">
+                Visit Explore Projects, find a project that interests you
+                and send a join request. The project owner can review it.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>How can I connect with other students?</summary>
+            <div class="faq-answer">
+                Open Find Teammates, discover student profiles and
+                send a connection request. Once accepted, you can
+                communicate through the messaging feature.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Can I send private messages?</summary>
+            <div class="faq-answer">
+                Yes. You can chat with students after they accept
+                your connection request.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Can I use Project Pal for free?</summary>
+            <div class="faq-answer">
+                Project Pal is designed as a student collaboration
+                platform. You can use its available features without
+                a subscription.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>What should I do if I face a problem?</summary>
+            <div class="faq-answer">
+                Visit our Contact Us page and send us a message
+                describing your issue.
+            </div>
+        </details>
+
+    </section>
+
+    <section class="help-contact">
+        <h2>Still Need Help?</h2>
+        <p>Can't find the answer you're looking for? Contact us.</p>
+        <a href="contact.html" class="primary-btn">Contact Us →</a>
+    </section>
+
+</main>
+
+<footer class="main-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+            <div class="logo">Project<span>Pal.</span></div>
+            <p>
+                Find teammates. Build projects. Get things done.
+                A place where student ideas turn into real projects
+                through collaboration.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Explore Projects</a>
+            <a href="teammates.html">Find Teammates</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="contact.html">Contact Us</a>
+            <a href="help.html">Help Desk</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Project Pal. Made for students, built for collaboration.
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>
