@@ -26,6 +26,13 @@
 </header>
 
 <section class="dashboard">
+
+    <div class="profile-card">
+        <h2 id="userName">Loading...</h2>
+        <p id="userEmail">Loading email...</p>
+        <p>Project Pal Member</p>
+    </div>
+
     <h1>Welcome to Your <span>Dashboard!</span></h1>
     <p>Manage your projects and track your progress.</p>
 
@@ -36,28 +43,45 @@
         </div>
 
         <div class="stat-card">
-            <h2>3</h2>
+            <h2 id="availableTeammates">3</h2>
             <p>Available Teammates</p>
         </div>
 
         <div class="stat-card">
-            <h2>1</h2>
+            <h2 id="activeProjects">0</h2>
             <p>Active Projects</p>
         </div>
     </div>
 
     <div class="dashboard-content">
-        <h2>My Projects</h2>
 
+        <h2>My Projects</h2>
         <div id="myProjects" class="my-projects">
-            <p>No projects created yet. Start by creating your first project!</p>
+            <p>Loading projects...</p>
         </div>
 
+        <br>
+        <h2>Join Requests</h2>
+        <div id="joinRequests" class="my-projects">
+            <p>Loading requests...</p>
+        </div>
+
+        <br>
+        <h2>Joined Projects</h2>
+        <div id="joinedProjects" class="my-projects">
+            <p>Loading projects...</p>
+        </div>
+
+        <br>
         <a href="create-project.html" class="primary-btn">+ Create New Project</a>
+
     </div>
 </section>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
 <script src="js/dashboard.js"></script>
 <script src="js/theme.js"></script>
+
 </body>
 </html>
