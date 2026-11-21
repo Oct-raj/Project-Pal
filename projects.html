@@ -22,6 +22,7 @@
         <div class="hero-buttons">
             <button id="themeToggle" class="theme-toggle">☀ Light</button>
             <a href="create-project.html" class="nav-btn">Create Project</a>
+            <div id="authButtons" class="hero-buttons"></div>
         </div>
     </header>
 
@@ -39,12 +40,38 @@
             <p>Loading projects...</p>
         </div>
 
-        <p id="noResults" style="display:none;">No projects found.</p>
+        <p id="noResults" class="no-results" hidden>No projects found.</p>
     </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+
+            <div class="footer-about">
+                <h2>Project<span>Pal.</span></h2>
+                <p>Find teammates, share ideas, and turn your project ideas into reality.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="help.html">Help Desk</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Project Pal. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase.js"></script>
     <script src="js/projects.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/theme.js"></script>
 
 </body>
