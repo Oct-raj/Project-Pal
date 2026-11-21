@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Project Pal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">Project<span>Pal.</span></div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Explore Projects</a>
+        <a href="teammates.html">Find Teammates</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <div class="hero-buttons">
+        <button id="themeToggle" class="theme-toggle">☀ Light</button>
+        <div id="authButtons" class="hero-buttons"></div>
+    </div>
+</header>
+
+<main class="contact-section">
+
+    <section class="contact-info">
+        <h1>Get In <span>Touch.</span></h1>
+
+        <p>
+            Have a question, suggestion or problem?
+            We'd love to hear from you. Send us a message
+            and help us make Project Pal better.
+        </p>
+
+        <div class="contact-detail">
+            <strong>💬 General Queries</strong>
+            <p>Ask us anything about Project Pal.</p>
+        </div>
+
+        <div class="contact-detail">
+            <strong>💡 Suggestions</strong>
+            <p>Share your ideas to improve the platform.</p>
+        </div>
+
+        <div class="contact-detail">
+            <strong>🛠 Support</strong>
+            <p>Tell us if you face any technical issue.</p>
+        </div>
+    </section>
+
+    <section class="contact-form">
+        <h2>Send Us a Message</h2>
+
+        <form id="contactForm">
+
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" maxlength="100"
+                   placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" maxlength="254"
+                   placeholder="Enter your email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" maxlength="150"
+                   placeholder="What is this about?" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" maxlength="2000"
+                      placeholder="Write your message..." required></textarea>
+
+            <button type="submit" class="primary-btn" id="sendMessage">
+                Send Message →
+            </button>
+
+            <p id="contactStatus"></p>
+        </form>
+    </section>
+
+</main>
+
+<footer class="main-footer">
+
+    <div class="footer-content">
+
+        <div class="footer-about">
+            <div class="logo">Project<span>Pal.</span></div>
+
+            <p>
+                Find teammates. Build projects. Get things done.
+                A place where student ideas turn into real projects
+                through collaboration.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Explore Projects</a>
+            <a href="teammates.html">Find Teammates</a>
+            <a href="dashboard.html">Dashboard</a>
+        </div>
+
+        <div class="footer-links">
+            <h3>Support</h3>
+            <a href="contact.html">Contact Us</a>
+            <a href="help.html">Help Desk</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Project Pal. Made for students, built for collaboration.
+    </div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>
