@@ -8,6 +8,21 @@
     --white: #ffffff;
     --grey: #a5ada5;
     --border: #263326;
+    --soft: #192219;
+    --input: #151c15;
+    --shadow: transparent;
+}
+
+[data-theme="light"] {
+    --bg: #f3f8f2;
+    --card: #ffffff;
+    --green: #168a45;
+    --white: #152419;
+    --grey: #617064;
+    --border: #dcebdd;
+    --soft: #edf6ed;
+    --input: #f7faf6;
+    --shadow: rgba(22, 138, 69, 0.07);
 }
 
 * {
@@ -20,6 +35,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: var(--bg);
     color: var(--white);
+    transition: background 0.3s, color 0.3s;
 }
 
 /* Navbar */
@@ -28,7 +44,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 8%;
-    background: #0d120d;
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
 }
 
@@ -63,6 +79,7 @@ nav a:hover {
     color: var(--green);
 }
 
+/* Buttons */
 .nav-btn,
 .primary-btn {
     display: inline-block;
@@ -102,6 +119,25 @@ nav a:hover {
     background: var(--green);
     color: var(--bg);
     transform: translateY(-3px);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    padding: 10px 15px;
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--green);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--green);
+    color: #ffffff;
 }
 
 /* Hero */
@@ -152,6 +188,7 @@ nav a:hover {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 22px;
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .card-icon {
@@ -171,7 +208,7 @@ nav a:hover {
 }
 
 .mini-card {
-    background: #192219;
+    background: var(--soft);
     padding: 13px;
     border-radius: 12px;
     margin-top: 12px;
@@ -205,6 +242,7 @@ nav a:hover {
     border: 1px solid var(--border);
     border-radius: 20px;
     transition: 0.3s;
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .feature-icon {
@@ -247,7 +285,7 @@ nav a:hover {
     border: 1px solid var(--border);
     outline: none;
     border-radius: 12px;
-    background: var(--card);
+    background: var(--input);
     color: var(--white);
     font-family: inherit;
     margin-bottom: 40px;
@@ -266,12 +304,13 @@ nav a:hover {
     background: var(--card);
     border: 1px solid var(--border);
     transition: 0.3s;
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .project-tag {
     display: inline-block;
     color: var(--green);
-    background: #1b321b;
+    background: var(--soft);
     padding: 7px 12px;
     border-radius: 10px;
     font-size: 12px;
@@ -322,6 +361,7 @@ nav a:hover {
     background: var(--card);
     border: 1px solid var(--border);
     transition: 0.3s;
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .student-avatar {
@@ -349,7 +389,7 @@ nav a:hover {
 
 .skill-list span,
 .skill-tag {
-    background: #1b321b;
+    background: var(--soft);
     color: var(--green);
     padding: 7px 11px;
     border-radius: 10px;
@@ -380,6 +420,7 @@ nav a:hover {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .create-form label {
@@ -398,7 +439,7 @@ nav a:hover {
     border: 1px solid var(--border);
     outline: none;
     border-radius: 10px;
-    background: #151c15;
+    background: var(--input);
     color: var(--white);
     font-family: inherit;
 }
@@ -440,6 +481,7 @@ nav a:hover {
     border-radius: 20px;
     background: var(--card);
     border: 1px solid var(--border);
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .my-projects > p {
@@ -467,6 +509,7 @@ nav a:hover {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 20px;
+    box-shadow: 0 8px 25px var(--shadow);
 }
 
 .auth-card h1 {
@@ -502,6 +545,12 @@ nav a:hover {
     transform: translateY(-4px);
 }
 
+[data-theme="light"] .feature-card:hover,
+[data-theme="light"] .project-card:hover,
+[data-theme="light"] .team-card:hover {
+    box-shadow: 0 12px 28px rgba(22, 138, 69, 0.12);
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -510,6 +559,11 @@ footer {
     color: var(--grey);
     font-size: 13px;
     border-top: 1px solid var(--border);
+}
+
+[data-theme="light"] footer {
+    background: #ffffff;
+    border-color: var(--border);
 }
 
 /* Mobile */
@@ -557,5 +611,9 @@ footer {
 
     .auth-card {
         margin: 60px 20px;
+    }
+
+    .theme-toggle {
+        margin: 5px;
     }
 }
