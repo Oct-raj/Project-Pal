@@ -4,6 +4,8 @@ const client = window.supabaseClient;
 const myProjects = document.getElementById("myProjects");
 const joinRequests = document.getElementById("joinRequests");
 const joinedProjects = document.getElementById("joinedProjects");
+const connectionRequests = document.getElementById("connectionRequests");
+const myConnections = document.getElementById("myConnections");
 
 async function loadDashboard() {
     try {
@@ -16,12 +18,16 @@ async function loadDashboard() {
             myProjects.innerText = "Please login first.";
             joinRequests.innerHTML = "";
             joinedProjects.innerHTML = "";
+            connectionRequests.innerHTML = "";
+            myConnections.innerHTML = "";
+
             document.getElementById("userName").innerText = "Guest";
             document.getElementById("userEmail").innerText = "";
+
             return;
         }
 
-        // User Details
+        // USER DETAILS
         const { data: profile, error: profileError } = await client
             .from("profiles")
             .select("full_name, email")
@@ -36,7 +42,7 @@ async function loadDashboard() {
         document.getElementById("userEmail").innerText =
             profile?.email || user.email;
 
-        // My Projects
+        // MY PROJECTS
         const { data: projects, error } = await client
             .from("projects")
             .select("*")
@@ -45,7 +51,9 @@ async function loadDashboard() {
 
         if (error) throw error;
 
-        document.getElementById("totalProjects").innerText = projects.length;
+        document.getElementById("totalProjects").innerText =
+            projects.length;
+
         myProjects.innerHTML = "";
 
         if (projects.length === 0) {
@@ -69,7 +77,7 @@ async function loadDashboard() {
             myProjects.appendChild(card);
         });
 
-        // Join Requests
+        // PROJECT JOIN REQUESTS
         joinRequests.innerHTML = "";
 
         if (projects.length > 0) {
@@ -88,11 +96,12 @@ async function loadDashboard() {
             }
 
             for (const request of requests) {
-                const { data: profile, error: requesterError } = await client
-                    .from("profiles")
-                    .select("full_name, email")
-                    .eq("id", request.requester_id)
-                    .maybeSingle();
+                const { data: requester, error: requesterError } =
+                    await client
+                        .from("profiles")
+                        .select("full_name, email")
+                        .eq("id", request.requester_id)
+                        .maybeSingle();
 
                 if (requesterError) throw requesterError;
 
@@ -104,17 +113,18 @@ async function loadDashboard() {
                 card.className = "project-card";
 
                 const name = document.createElement("h3");
-                name.innerText =
-                    profile?.full_name || profile?.email || "Student";
+                name.innerText = requester?.full_name || "Student";
 
                 const email = document.createElement("p");
-                email.innerText = profile?.email || "";
+                email.innerText = requester?.email || "";
 
                 const projectName = document.createElement("p");
-                projectName.innerText = "Project: " + project.title;
+                projectName.innerText =
+                    "Project: " + (project?.title || "Unknown Project");
 
                 const message = document.createElement("p");
-                message.innerText = request.message || "Wants to join your project.";
+                message.innerText =
+                    request.message || "Wants to join your project.";
 
                 const accept = document.createElement("button");
                 accept.className = "primary-btn";
@@ -133,14 +143,24 @@ async function loadDashboard() {
                     manageRequest(request.id, false)
                 );
 
-                card.append(name, email, projectName, message, accept, reject);
+                card.append(
+                    name,
+                    email,
+                    projectName,
+                    message,
+                    accept,
+                    reject
+                );
+
                 joinRequests.appendChild(card);
             }
+
         } else {
-            joinRequests.innerText = "Create a project to receive requests.";
+            joinRequests.innerText =
+                "Create a project to receive requests.";
         }
 
-        // Joined Projects
+        // JOINED PROJECTS
         const { data: memberships, error: memberError } = await client
             .from("project_members")
             .select("project_id")
@@ -151,7 +171,7 @@ async function loadDashboard() {
         joinedProjects.innerHTML = "";
 
         if (memberships.length > 0) {
-            const ids = memberships.map(m => m.project_id);
+            const ids = [...new Set(memberships.map(m => m.project_id))];
 
             const { data: joined, error: joinedError } = await client
                 .from("projects")
@@ -173,10 +193,142 @@ async function loadDashboard() {
                 card.append(title, description);
                 joinedProjects.appendChild(card);
             });
+
         } else {
-            joinedProjects.innerText = "You haven't joined any projects yet.";
+            joinedProjects.innerText =
+                "You haven't joined any projects yet.";
         }
 
+        // INCOMING CONNECTION REQUESTS
+        connectionRequests.innerHTML = "";
+
+        const { data: incoming, error: incomingError } = await client
+            .from("connection_requests")
+            .select("*")
+            .eq("receiver_id", user.id)
+            .eq("status", "pending")
+            .order("created_at", { ascending: false });
+
+        if (incomingError) throw incomingError;
+
+        // Avoid showing duplicate pending requests from same student
+        const uniqueIncoming = new Map();
+
+        incoming.forEach(request => {
+            if (!uniqueIncoming.has(request.sender_id)) {
+                uniqueIncoming.set(request.sender_id, request);
+            }
+        });
+
+        if (uniqueIncoming.size === 0) {
+            connectionRequests.innerText =
+                "No new connection requests.";
+        }
+
+        for (const request of uniqueIncoming.values()) {
+            const { data: sender, error: senderError } = await client
+                .from("profiles")
+                .select("full_name, email")
+                .eq("id", request.sender_id)
+                .maybeSingle();
+
+            if (senderError) throw senderError;
+
+            const card = document.createElement("div");
+            card.className = "project-card";
+
+            const name = document.createElement("h3");
+            name.innerText = sender?.full_name || "Student";
+
+            const email = document.createElement("p");
+            email.innerText = sender?.email || "";
+
+            const accept = document.createElement("button");
+            accept.className = "primary-btn";
+            accept.innerText = "Accept";
+
+            const reject = document.createElement("button");
+            reject.className = "primary-btn";
+            reject.innerText = "Reject";
+            reject.style.marginLeft = "10px";
+
+            accept.addEventListener("click", () =>
+                manageConnection(request.id, "accepted")
+            );
+
+            reject.addEventListener("click", () =>
+                manageConnection(request.id, "rejected")
+            );
+
+            card.append(name, email, accept, reject);
+            connectionRequests.appendChild(card);
+        }
+
+        // MY CONNECTIONS
+        myConnections.innerHTML = "";
+
+        const { data: connections, error: connectionsError } = await client
+            .from("connection_requests")
+            .select("*")
+            .eq("status", "accepted")
+            .or(`sender_id.eq.${user.id},receiver_id.eq.${user.id}`);
+
+        if (connectionsError) throw connectionsError;
+
+        // REMOVE DUPLICATE CONNECTIONS
+        const uniqueConnections = new Map();
+
+        connections.forEach(connection => {
+            const otherUserId =
+                connection.sender_id === user.id
+                    ? connection.receiver_id
+                    : connection.sender_id;
+
+            if (otherUserId && otherUserId !== user.id) {
+                uniqueConnections.set(otherUserId, connection);
+            }
+        });
+
+        if (uniqueConnections.size === 0) {
+            myConnections.innerText = "No connections yet.";
+        }
+
+        for (const [otherUserId] of uniqueConnections) {
+            const { data: student, error: studentError } = await client
+                .from("profiles")
+                .select("full_name, email")
+                .eq("id", otherUserId)
+                .maybeSingle();
+
+            if (studentError) throw studentError;
+
+            const card = document.createElement("div");
+            card.className = "project-card";
+
+            const name = document.createElement("h3");
+            name.innerText = student?.full_name || "Student";
+
+            const email = document.createElement("p");
+            email.innerText = student?.email || "";
+
+            const status = document.createElement("p");
+            status.innerText = "Connected ✓";
+
+            // MESSAGE BUTTON
+            const chatButton = document.createElement("button");
+            chatButton.className = "primary-btn";
+            chatButton.innerText = "Message";
+
+            chatButton.addEventListener("click", function() {
+                window.location.href =
+                    "chat.html?user=" + encodeURIComponent(otherUserId);
+            });
+
+            card.append(name, email, status, chatButton);
+            myConnections.appendChild(card);
+        }
+
+        // DASHBOARD STATISTICS
         document.getElementById("activeProjects").innerText =
             projects.length + memberships.length;
 
@@ -186,6 +338,8 @@ async function loadDashboard() {
     }
 }
 
+
+// HANDLE PROJECT JOIN REQUESTS
 async function manageRequest(requestId, accepted) {
     try {
         const { error } = await client.rpc("handle_join_request", {
@@ -196,6 +350,7 @@ async function manageRequest(requestId, accepted) {
         if (error) throw error;
 
         alert(accepted ? "Request accepted!" : "Request rejected!");
+
         await loadDashboard();
 
     } catch (error) {
@@ -204,4 +359,31 @@ async function manageRequest(requestId, accepted) {
     }
 }
 
+
+// HANDLE TEAMMATE CONNECTION REQUESTS
+async function manageConnection(requestId, status) {
+    try {
+        const { error } = await client
+            .from("connection_requests")
+            .update({ status: status })
+            .eq("id", requestId);
+
+        if (error) throw error;
+
+        alert(
+            status === "accepted"
+                ? "Connection accepted!"
+                : "Connection rejected!"
+        );
+
+        await loadDashboard();
+
+    } catch (error) {
+        console.error(error);
+        alert(error.message);
+    }
+}
+
+
+// LOAD DASHBOARD
 loadDashboard();
